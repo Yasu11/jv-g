@@ -31,7 +31,7 @@ public class T1main{
         
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity(); // Resets any previous projection matrices
-        glOrtho(0, windowWidth, windowHeight, 0, 1, -1);
+        glOrtho(0, windowWidth, 0, windowHeight, 1, -1);
         glMatrixMode(GL_MODELVIEW);
  
         while (!Display.isCloseRequested()) {
@@ -48,9 +48,9 @@ public class T1main{
 	    if(key.space == true){
 	    	
 	    	mouse.grab(true);
-	    	Tri(	mouse.x +5  , windowHeight-mouse.y + 25 ,
-	    			mouse.x +20 , windowHeight-mouse.y + 10 ,
-	    			mouse.x     , windowHeight-mouse.y       );
+	    	Tri(	mouse.x +5  , mouse.y - 25 ,
+	    			mouse.x +20 , mouse.y - 10 ,
+	    			mouse.x     , mouse.y       );
 	    	
 	    } else {
 	    	mouse.grab(false);
@@ -68,10 +68,10 @@ public class T1main{
     public void Rectangle(int x,int y,int w,int h){
     	
     	glBegin(GL_QUADS);
-    	glVertex2f(x  ,windowHeight-y  );
-    	glVertex2f(x-w,windowHeight-y  );
-    	glVertex2f(x-w,windowHeight-y+h);
-    	glVertex2f(x  ,windowHeight-y+h);
+    	glVertex2f(x  , y  );
+    	glVertex2f(x-w, y  );
+    	glVertex2f(x-w, y-h);
+    	glVertex2f(x  , y-h);
     	glEnd();
     	
     }
