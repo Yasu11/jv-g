@@ -7,6 +7,7 @@ import org.lwjgl.opengl.DisplayMode;
 
 import yasu11.t1.input.KeyboardInput;
 import yasu11.t1.input.MouseInput;
+import yasu11.t1.util.glUtil;
  
 public class T1main{
  
@@ -43,7 +44,7 @@ public class T1main{
         
 	    // render OpenGL here
 	    
-	    glColor3f(1,0,0);
+	    setColor(0xff0000);
 	    
 	    if(key.space == true){
 	    	
@@ -64,28 +65,10 @@ public class T1main{
 	Display.destroy();
     }
     
-	//Draw a Rectangle   -x,y,width,height-
-    public void Rectangle(int x,int y,int w,int h){
-    	
-    	glBegin(GL_QUADS);
-    	glVertex2f(x  , y  );
-    	glVertex2f(x-w, y  );
-    	glVertex2f(x-w, y-h);
-    	glVertex2f(x  , y-h);
-    	glEnd();
-    	
-    }
-    
-    public void Tri(int x1,int y1,int x2,int y2,int x3,int y3){
-    	
-    	glBegin(GL_TRIANGLES);
-    	glVertex2f(x1,y1);
-    	glVertex2f(x2,y2);
-    	glVertex2f(x3,y3);
-    	glEnd();
-    	
-    }
 	
+    
+    
+    
  
     public static void main(String[] argv) {
     	T1main t1main = new T1main();
