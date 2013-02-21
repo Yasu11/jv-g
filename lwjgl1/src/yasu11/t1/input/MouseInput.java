@@ -17,9 +17,9 @@ public class MouseInput {
 	    y = Mouse.getY();
 		
 	    if (Mouse.isButtonDown(0)) {
-		rightButtonDown = Mouse.isButtonDown(1);
+		rightButtonDown = Mouse.isButtonDown(1);/*
 	    System.out.println("MOUSE DOWN @ X: " + x + " Y: " + y);
-	    System.out.println("MOUSE DOWN @ X: " + x + " Y: " + y);
+	    System.out.println("MOUSE DOWN @ X: " + x + " Y: " + y);*/
 	    }	
 	    
 	    

@@ -7,10 +7,12 @@ import static org.lwjgl.opengl.GL11.glColor3f;
 import static org.lwjgl.opengl.GL11.glEnd;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 
-public class glUtil {
+public final class glUtil {
+	
+	
 	
 	//Draw a Rectangle   -x,y,width,height-
-    public void Rectangle(int x,int y,int w,int h){
+    public static void Rectangle(int x,int y,int w,int h){
     	
     	glBegin(GL_QUADS);
     	glVertex2f(x  , y  );
@@ -21,7 +23,7 @@ public class glUtil {
     	
     }
     
-    public void Tri(int x1,int y1,int x2,int y2,int x3,int y3){
+    public static void Tri(int x1,int y1,int x2,int y2,int x3,int y3){
     	
     	glBegin(GL_TRIANGLES);
     	glVertex2f(x1,y1);
@@ -31,17 +33,41 @@ public class glUtil {
     	
     }
 	
-    public void setColor(int col){
+    public static void setColor(int col){
     	
     	int cr,cg,cb;   // R G B    	
 
-    	cr = (col & 0xff0000) >> 4;
-    	cg = (col & 0x00ff00) >> 2;
-    	cb = (col & 0x0000ff);
+    	cr = (col & 0xff0000) >> 16;
+    	cg = (col & 0x00ff00) >> 8;
+    	cb = (col & 0x0000ff) ;
     	
     	
-    	glColor3f(cr/255,cg/255,cb/255);
+    	glColor3f((float)cr/0xff,(float)cg/0xff,(float)cb/0xff);
     	
     	
     }
+    
+    // Max   16777215
+    // Max R G B  255 255 255
+    
+public static int getChannel(int col, CHANNEL channel){
+    	
+		if(channel == CHANNEL.RED)
+		{
+    	return (col & 0xff0000) >> 16;
+    	}
+		else if(channel == CHANNEL.GREEN)
+		{
+    	return (col & 0x00ff00) >> 8;
+    	}
+		else if(channel == CHANNEL.BLUE)
+		{
+    	return (col & 0x0000ff) ;
+		}
+		else {System.out.println("Invalid or no CHANNEL");}
+    	
+    	return 0;
+    }
+
+
 }

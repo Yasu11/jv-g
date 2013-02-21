@@ -4,13 +4,13 @@ import org.lwjgl.input.Keyboard;
 
 public class KeyboardInput {
 
-	public boolean w,a,s,d,space;
+	public boolean w,a,s,d,r,space;
 	
 	public void pollInput() {
-		w = false;
+	/*	w = false;
 		a = false;
 		s = false;
-		d = false;
+		d = false;*/
 		space = false;
 		
 	if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
@@ -21,23 +21,28 @@ public class KeyboardInput {
 		
 	    if (Keyboard.getEventKeyState()) {
 	        if (Keyboard.getEventKey() == Keyboard.KEY_A) {
-		    System.out.println("A Key Pressed");
+		    a = true;
 		}
 		if (Keyboard.getEventKey() == Keyboard.KEY_S) {
-		    System.out.println("S Key Pressed");
-		}
+			s = true;
+			}
 		if (Keyboard.getEventKey() == Keyboard.KEY_D) {
-		    System.out.println("D Key Pressed");
-		}
+			d = true;
+			}
+		if (Keyboard.getEventKey() == Keyboard.KEY_R) {
+				r = true;
+			}
 	    } else {
 	        if (Keyboard.getEventKey() == Keyboard.KEY_A) {
-		    System.out.println("A Key Released");
+	        	a = false;
 	        }
 	    	if (Keyboard.getEventKey() == Keyboard.KEY_S) {
-		    System.out.println("S Key Released");
+	    		s = false;
 		}
 		if (Keyboard.getEventKey() == Keyboard.KEY_D) {
-		    System.out.println("D Key Released");
+			d = false;
+		   }if (Keyboard.getEventKey() == Keyboard.KEY_R) {
+			r = false;
 		   }
 	    }
 	}
