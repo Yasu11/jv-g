@@ -4,10 +4,17 @@ import org.lwjgl.input.Keyboard;
 
 public class KeyboardInput {
 
+	public boolean w,a,s,d,space;
+	
 	public void pollInput() {
-		 
+		w = false;
+		a = false;
+		s = false;
+		d = false;
+		space = false;
+		
 	if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
-	    System.out.println("SPACE KEY IS DOWN");
+	    space = true;
 	}
  
 	while (Keyboard.next()) {
